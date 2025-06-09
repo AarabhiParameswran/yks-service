@@ -13,6 +13,6 @@ router = APIRouter(prefix="/news", tags=["News API"])
 
 
 @router.get("/get-news-by-category/")
-def get_news_by_category(category: str, district_id: Optional[int] = None, news_service: NewsService = Depends(get_news_service),
-                  token: str = Depends(oauth2_scheme)):
-    return news_service.get_news_by_category(category,district_id,token)
+def get_news_by_category(category: str, district_id: Optional[int] = None, news_service: NewsService = Depends(get_news_service)):
+                #   token: str = Depends(oauth2_scheme)):
+    return news_service.get_news_by_category(category,district_id)

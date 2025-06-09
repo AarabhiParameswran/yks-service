@@ -11,8 +11,8 @@ class NewsService:
         self.user_service = user_service
         self.token_service = token_service
 
-    def get_news_by_category(self,category,district_id,token):
-        self.token_service.get_user_from_token(token)
+    def get_news_by_category(self,category,district_id,):
+        # self.token_service.get_user_from_token(token)
         if district_id :
             news = self.db.query(News).filter(News.category == category,News.district_id == district_id).all()
         else:

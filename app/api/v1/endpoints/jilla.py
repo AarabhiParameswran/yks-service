@@ -14,14 +14,14 @@ router = APIRouter(prefix="/state", tags=["State API"])
 
 
 @router.get("/jilla")
-def get_jilla(jilla_service: JillaService = Depends(get_jilla_service),
-                  token: str = Depends(oauth2_scheme)):
-    return jilla_service.get_jilla(token)
+def get_jilla(jilla_service: JillaService = Depends(get_jilla_service),):
+                #   token: str = Depends(oauth2_scheme)):
+    return jilla_service.get_jilla()
 
 @router.get("/upasabha/{district_code}")
-def get_upasabha(district_code: int, jilla_service: JillaService = Depends(get_jilla_service),
-                  token: str = Depends(oauth2_scheme)):
-    return jilla_service.get_upasabha(district_code,token)
+def get_upasabha(district_code: int, jilla_service: JillaService = Depends(get_jilla_service),):
+                #   token: str = Depends(oauth2_scheme)):
+    return jilla_service.get_upasabha(district_code)
 
 
 @router.post("/upload/")
@@ -30,6 +30,6 @@ def upload_file(upasabha_code: int, file: UploadFile = File(...), jilla_service:
 
 
 @router.get("/upasabha/files/{upasabha_code}")
-def get_files(upasabha_code: int, jilla_service: JillaService = Depends(get_jilla_service),
-                  token: str = Depends(oauth2_scheme)):
-    return jilla_service.get_upasabha_file(upasabha_code,token)
+def get_files(upasabha_code: int, jilla_service: JillaService = Depends(get_jilla_service),):
+                #   token: str = Depends(oauth2_scheme)):
+    return jilla_service.get_upasabha_file(upasabha_code)

@@ -19,17 +19,17 @@ class JillaService:
         self.user_service = user_service
         self.token_service = token_service
 
-    def get_jilla(self,token):
-        self.token_service.get_user_from_token(token)
+    def get_jilla(self):
+        # self.token_service.get_user_from_token(token)
         return self.db.query(Jilla).all()
 
-    def get_upasabha(self, district_code: int, token: str):
-        self.token_service.get_user_from_token(token)
+    def get_upasabha(self, district_code: int):
+        # self.token_service.get_user_from_token(token)
         records = self.db.query(Upasabha).filter(Upasabha.district_code == district_code).all()
         return records
     
-    def get_upasabha_file(self,upasabha_code :int ,token:str):
-        self.token_service.get_user_from_token(token)
+    def get_upasabha_file(self,upasabha_code :int ):
+        # self.token_service.get_user_from_token(token)
         records = self.db.query(FileUpload).filter(FileUpload.upasabha_code == upasabha_code).all()
         return records
     

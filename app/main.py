@@ -3,7 +3,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from fastapi.openapi.utils import get_openapi
 from fastapi.security import OAuth2PasswordBearer
 from fastapi import APIRouter
-from app.api.v1.endpoints import auth, jilla, news, user
+from app.api.v1.endpoints import auth, jilla, member, news, user
 
 
 router = APIRouter()
@@ -61,3 +61,4 @@ app.add_middleware(
 app.include_router(auth.router)
 app.include_router(jilla.router)
 app.include_router(news.router)
+app.include_router(member.router)
