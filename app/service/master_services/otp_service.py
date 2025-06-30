@@ -13,9 +13,6 @@ NO_OF_DIGITS = 6
 USER_NOT_FOUND_ERROR = "User not found"
 
 
-# MSG_91_AUTH = 
-# MSG91_SENDER_ID = 
-
 class OTPService:
 
     def __init__(self, db: Session,
@@ -112,30 +109,6 @@ class OTPService:
     #     if not otp.isdigit():
     #         raise HTTPException(status_code=400, detail="OTP must contain only numbers.")
     
-
-    # def _send_sms_via_msg91(self, mobile_number, message):
-    #     url = "https://api.msg91.com/api/v5/otp"
-        
-    #     payload = {
-    #         "authkey": self.msg91_api_key,
-    #         "template_id": "680b57c3d6fc0574165fc4c2",  # Replace with your Msg91 OTP template ID
-    #         "mobile": mobile_number,
-    #         "message": message,
-    #         "sender": self.msg91_sender_id,
-    #         "otp": True,  # Indicating OTP sending
-    #     }
-        
-    #     headers = {
-    #         "Content-Type": "application/json",
-    #     }
-
-    #     response = requests.post(url, json=payload, headers=headers)
-
-    #     if response.status_code == 200:
-    #         print("OTP sent successfully via Msg91")
-    #     else:
-    #         print(f"Failed to send OTP. Error: {response.text}")
-
     
 def get_otp_service(
         db: Session = Depends(get_db),
